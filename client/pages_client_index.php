@@ -13,8 +13,9 @@ if (isset($_POST['login'])) {
   //$uip=$_SERVER['REMOTE_ADDR'];
   //$ldate=date('d/m/Y h:i:s', time());
   if ($rs) { //if its sucessfull
-    header("location:pages_dashboard.php");
     $success = "successfully logged in";
+    header("location:pages_dashboard.php");
+    
   } else {
     // echo "<script>alert('Access Denied Please Check Your Credentials');</script>";
     $err = "Access Denied Please Check Your Credentials";
@@ -36,7 +37,7 @@ while ($auth = $res->fetch_object()) {
     <div class="login-box">
       <div class="login-logo">
         <p><?php echo $auth->sys_name; ?></p>
-      </div><!-- Log on to codeastro.com for more projects! -->
+      </div>
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
@@ -79,14 +80,14 @@ while ($auth = $res->fetch_object()) {
 
           <!-- /.social-auth-links -->
 
-          <!-- <p class="mb-1">
+           <p class="mb-1">
             <a href="pages_reset_pwd.php">I forgot my password</a>
-          </p> -->
+          </p> 
 
 
           <p class="mb-0">
             <a href="pages_client_signup.php" class="text-center">Register a new account</a>
-          </p><!-- Log on to codeastro.com for more projects! -->
+          </p>
 
         </div>
         <!-- /.login-card-body -->
@@ -95,11 +96,11 @@ while ($auth = $res->fetch_object()) {
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.j"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/j/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.j"></script>
+    <script src="dist/js/adminlte.min.js"></script>
 
   </body>
 

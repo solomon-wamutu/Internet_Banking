@@ -39,7 +39,7 @@ while ($sys = $res->fetch_object()) {
         <?php if(isset($success)) { ?>
 
         <script>
-                setTimeout(function() => {
+                setTimeout(() => {
                      swal("Success", "<?php echo $success; ?>","success");   
                 }, 100);
         </script>
