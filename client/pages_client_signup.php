@@ -81,7 +81,7 @@ while ($auth=$res->fetch_object()){
                 </div>
               </div>
             </div>
-            <div class="input-group mb-3" style="display:block;">
+            <div class="input-group mb-3">
               <?php
               //PHP function to generate random
               $length = 8;

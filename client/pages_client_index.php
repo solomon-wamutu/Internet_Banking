@@ -10,8 +10,8 @@ if (isset($_POST['login'])) {
   $stmt->bind_result($email, $password, $client_id); //bind result
   $rs = $stmt->fetch();
   $_SESSION['client_id'] = $client_id; //assaign session toc lient id
-  //$uip=$_SERVER['REMOTE_ADDR'];
-  //$ldate=date('d/m/Y h:i:s', time());
+  $uip=$_SERVER['REMOTE_ADDR'];
+  $ldate=date('d/m/Y h:i:s', time());
   if ($rs) { //if its sucessfull
     $success = "successfully logged in";
     header("location:pages_dashboard.php");
