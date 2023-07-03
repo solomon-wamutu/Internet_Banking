@@ -14,7 +14,7 @@ if(isset($_POST['reset_password'])){
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
         $err = "Invalid email address";
     }
-    $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `ib_clients` WHERE `email` = '" . $_POST['email'] . "'") or exit(mysqli_error($mysqli));
+    $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `ib_clients` WHERE `email` = `" . $_POST['email'] . "`") or exit(mysqli_error($mysqli));
 
     if (mysqli_num_rows($checkEmail) > 0) {
 
@@ -47,50 +47,43 @@ $res = $stmt->get_result();
 while ($auth = $res->fetch_object()) {
     ?>
 <!DOCTYPE html>
-  <html>
-  <?php include("dist/_partials/head.php"); ?>
-<body class="hold-transition login-page">
+<html lang="en">
+<?php include("./dist/_partials/head.php"); ?>
+<body class="hold-transition login.php">
     
 <div class="login-box">
-      <div class="login-logo"> 
-        <p><?php echo $auth->sys_name; ?> - <?php echo $auth->sys_tagline; ?></p>
-      </div>
-      <!-- /.login-logo -->
-      <div class="card">
+    <div class="login-logo"></div>
+    <div class="card">
         <div class="card-body login-card-body">
-          <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+                    <p class="login-box-msg">You've lost your password, don't worry we'll help you recover it</p>
 
-                    <form method="POST">
+
+                
+
+        <form action="" method="post">
             <div class="input-group mb-3">
-              <input type="email" name="email" class="form-control" placeholder="Email" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
+                <input type="email" name="email" id="email" required placeholder="Email" class="form-control">
+                <div class="input-group-append">
+                    <div class="input-group-text"></div>
+                    <span class="fas fa-envelope"></span>
                 </div>
-              </div>
             </div>
 
             <div class="row">
-              <div class="col-12">
-                <button type="submit" name="reset_password" class="btn btn-success btn-block">Request new password</button>
-              </div>
-              <!-- /.col -->
+                <div class="col-12">
+                    <button type="submit" name="reset_password" class="btn btn-success btn-block">Request for Password</button>
+                </div>
             </div>
-          </form>
-          <p class="mt-3 mb-1">
+        </form>
+            <p class="mt-3 mb-1">
             <a href="pages_client_index.php">Login</a>
-          </p>
-
+            </p>
         </div>
-        <!-- /.login-card-body -->
-      </div>
     </div>
-    
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
+</div>
+<script src="./plugins/jquery/jquery.min.js"></script>
+<script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./dist/js/adminlte.min.js"></script>
 </body>
 </html>
 
