@@ -84,7 +84,6 @@ $stmt->close();
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <?php include("dist/_partials/head.php"); ?>
-<!-- Log on to codeastro.com for more projects! -->
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 
   <div class="wrapper">
