@@ -18,7 +18,7 @@ if(isset($_POST['confirm-reset-password'])){
         $error = 1;
         $err = "confirmation password cannot be empty";
     }
-    if($error){
+    if(!$error){
         $email = $_SESSION['email'];
         $sel = "SELECT * FROM ib_clients WHERE email = '$email'";
         $res = mysqli_query($mysqli, $sel);
@@ -26,7 +26,7 @@ if(isset($_POST['confirm-reset-password'])){
             $row = mysqli_fetch_assoc($res);
 
             if($new_password != $confirm_password){
-                $err = "Password do not match";
+                $err = "Password does not match";
             }
             else{
                 $email = $_SESSION['email'];
@@ -38,7 +38,7 @@ if(isset($_POST['confirm-reset-password'])){
                     $success = "Password has changed" && header("refresh:1; url = pages_client_index.php");
                 }
                 else{
-                    $err = "Please again or try later";
+                    $err = "Please try again or try later";
                 }
             }
         }
@@ -66,7 +66,7 @@ while ($auth = $res->fetch_object()){
         <div class="card-body login-card-body">
             <?php 
             $email = $_SESSION['email'];
-            $sel = "SELECT * FROM `ib_clients` WHERE email = '$email'";
+            $sel = "SELECT * FROM ib_clients WHERE email = '$email'";
             $stmt = $mysqli -> prepare($sel);
             $stmt -> execute();
             $ret = $stmt -> get_result();
