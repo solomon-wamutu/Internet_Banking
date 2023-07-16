@@ -121,7 +121,7 @@ if (isset($_GET['RollBack_Transaction'])) {
                         <!-- /.card -->
                     </div>
                     <!-- /.col -->
-                </div><!-- Log on to codeastro.com for more projects! -->
+                </div>
                 <!-- /.row -->
             </section>
             <!-- /.content -->
