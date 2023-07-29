@@ -16,14 +16,8 @@ $client_id = $_SESSION['client_id'];
     <div class="wrapper">
         <!-- Navbar -->
         <?php include("dist/_partials/nav.php"); ?>
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
         <?php include("dist/_partials/sidebar.php"); ?>
-
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -124,7 +118,6 @@ $client_id = $_SESSION['client_id'];
     <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
     <!-- page script -->
     <script>
