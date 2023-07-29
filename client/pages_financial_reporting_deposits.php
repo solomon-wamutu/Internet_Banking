@@ -103,18 +103,11 @@ $client_id = $_SESSION['client_id'];
                                         </tfoot>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.row -->
             </section>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
         <?php include("dist/_partials/footer.php"); ?>
-
-        <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             
         </aside>
