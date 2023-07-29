@@ -36,13 +36,16 @@ else {
         $err = "Email does not exist";
     }
 
+}
+
     $sel = "SELECT * FROM `ib_systemsettings";
     $stmt = $mysqli->prepare($sel);
     $stmt->execute();
     $res = $stmt->get_result();
     while($auth = $res->fetch_object()){
 
-    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +59,11 @@ else {
 </body>
 </html>
 
-
     <?php
-
 }
 ?>
+
+
 
 
 

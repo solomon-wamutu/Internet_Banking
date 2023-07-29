@@ -112,7 +112,6 @@ $stmt->close();
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
-      <!-- /.content-header -->
 
       <!-- Main content -->
       <section class="content">
@@ -202,13 +201,11 @@ $stmt->close();
                       <div class="chart">
                         <div id="AccountsPerAccountCategories" class="col-md-6" style="height: 400px; max-width: 500px; margin: 0px auto;"></div>
                       </div>
-                      <!-- /.chart-responsive -->
                     </div>
 
-                    <!-- /.col -->
                   </div>
                   <!-- /.row -->
-                </div><!-- Log on to codeastro.com for more projects! -->
+                </div>
                 <!-- ./card-body -->
                 <div class="card-footer">
                   <div class="row">

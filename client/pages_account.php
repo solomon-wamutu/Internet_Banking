@@ -18,12 +18,10 @@ $profile_pic = $_POST['profile_pic'];
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <?php include("dist/_partials/head.php"); ?>
-<!-- Log on to codeastro.com for more projects! -->
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed ">
     <div class="wrapper">
         <!-- Navbar -->
         <?php include("dist/_partials/nav.php"); ?>
-        <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <?php include("dist/_partials/sidebar.php"); ?>
@@ -53,7 +51,7 @@ while ($row = $res->fetch_object()) {
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
-                                    <!-- <li class="breadcrumb-item"><a href="pages_manage_clients.php">iBanking Clients</a></li> -->
+                                    <li class="breadcrumb-item"><a href="pages_manage_clients.php">iBanking Clients</a></li>
                                     <li class="breadcrumb-item"><a href="pages_manage_clients.php">Manage</a></li>
                                     <li class="breadcrumb-item active"><?php echo $row->name; ?></li>
                                 </ol>
@@ -66,7 +64,6 @@ while ($row = $res->fetch_object()) {
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
-                        <!-- Log on to codeastro.com for more projects! -->
                             <div class="col-md-3">
 
                                 <!-- Profile Image -->
@@ -143,7 +140,6 @@ while ($row = $res->fetch_object()) {
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
                     </div>
                     </div>
-                    <!-- /.card --><!-- Log on to codeastro.com for more projects! F-->
                             </div>
 
                             <!-- /.col -->
@@ -205,7 +201,6 @@ while ($row = $res->fetch_object()) {
                                                         </div>
                                                     </div>
                                                 </form>
-                                            </div><!-- Log on to codeastro.com for more projects! -->
 
                                             <!-- /Change Password -->
                                             <div class="tab-pane" id="Change_Password">
