@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('/opt/lampp/htdocs/internet_bank/InternetBanking-PHP2/admin/conf/config.php');
+include('conf/config.php');
 if (isset($_POST['reset_password'])) {
     $error = 0;
     if (isset($_POST['email']) && !empty($_POST['email'])) {
@@ -10,11 +10,13 @@ if (isset($_POST['reset_password'])) {
         $err = "Enter your email";
     }
 
-    if (!filter_list($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $err = 'Invalid email';
     }
 
-    $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `ib_admin` WHERE `email = '" . $_POST["email"] . "'");
+    // $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `ib_admin` WHERE `email = '" . $_POST["email"] . "'") or exit(mysqli_error($mysqli));
+    $checkEmail = mysqli_query($mysqli, "SELECT `email` FROM `ib_admin` WHERE `email` = '" . $_POST["email"] . "'") or exit(mysqli_error($mysqli));
+
     if (mysqli_num_rows($checkEmail) > 0) {
         $n = date('Y');
         $new_password = bin2hex(random_bytes($n));
