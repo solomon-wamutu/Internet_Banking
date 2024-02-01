@@ -38,7 +38,7 @@ else {
 
 }
 
-    $sel = "SELECT * FROM `ib_systemsettings";
+    $sel = "SELECT * FROM `ib_systemsettings`";
     $stmt = $mysqli->prepare($sel);
     $stmt->execute();
     $res = $stmt->get_result();
