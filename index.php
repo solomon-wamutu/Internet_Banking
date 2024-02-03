@@ -49,7 +49,7 @@ while ($sys = $res->fetch_object()) {
 
         <div class="intro py-5 py-lg-9 position-relative text-white">
             <div class="bg-overlay-gray">
-                <img src="dist/bg.webp" class="img-fluid img-cover" />
+                <img src="bg.webp" class="img-fluid img-cover" />
             </div>
             <div class="intro-content py-6 text-center">
                 <div class="container">

@@ -45,7 +45,7 @@ while ($auth = $res->fetch_object()) {
 
           <form method="post">
             <div class="input-group mb-3">
-              <input type="email" name="email" class="form-control" placeholder="Email">
+              <input type="email" name="email" class="form-control" placeholder="Email" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -53,7 +53,7 @@ while ($auth = $res->fetch_object()) {
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Password" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
