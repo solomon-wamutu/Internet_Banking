@@ -111,8 +111,8 @@ $client_id = $_SESSION['client_id'];
 
     <script>
         $(function() {
-                    $("#example1").DataTable()
-                                $("#example1").DataTable({
+                    $("#example1").DataTable();
+                                $("#example2").DataTable({
                                     "paging": true,
                                     "lengthChange": false,
                                     "searching":false,
