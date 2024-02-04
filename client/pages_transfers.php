@@ -101,6 +101,7 @@
     <script src="plugins/datatables/jquery.dataTables.js"></script>
     <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
     <script src="dist/js/adminlte.min.js"></script>
+    <script src="dist/js/demo.js"></script>
 </body>
 
 </html>
