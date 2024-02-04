@@ -96,7 +96,7 @@
         <aside class="control-sidebar control-sidebar-dark"></aside>
     </div>
 
-
+    <script src="plugins/jquery/jquery.min.js"></script>
 </body>
 
 </html>
