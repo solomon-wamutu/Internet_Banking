@@ -102,10 +102,22 @@ $client_id = $_SESSION['client_id'];
 
                                                 </tr>
                                             <?php
-                                            $cnt = $cnt + 1;
+                                                $cnt = $cnt + 1;
                                             }
                                             ?>
-
-                                        <?php
-                                    }
-                                        ?>
+                                            </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+            </div>
+        <?php
+        }
+        ?>
