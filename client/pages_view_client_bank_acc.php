@@ -121,3 +121,7 @@ $client_id = $_SESSION['client_id'];
         <?php
         }
         ?>
+        <?php
+        include("./dist/_partials/footer.php");
+        ?>
+        
