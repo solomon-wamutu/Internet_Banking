@@ -70,6 +70,20 @@ $client_id = $_SESSION['client_id'];
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                    <?php
+                                    $client_id = $_SESSION['client_id'];
+                                    $sel = "SELECT * FROM ib_bankaccounts WHERE account_id =?";
+                                    $stmt = $mysqli->prepare($sel);
+                                    $stmt->bind_param('i', $account_id);
+                                    $stmt->execute();
+                                    $res = $stmt->get_result();
+                                    $cnt = 1;
+                                    while($row = $res->fetch_object()){
+                                        
+                                    }
+
+                                    ?>
                                         <?php
                                                 }
 ?>
