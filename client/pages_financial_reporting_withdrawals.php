@@ -101,8 +101,22 @@ $client_id = $_SESSION['client_id'];
                 </div>
             </section>
         </div>
-    </div>
+        <?php include("dist/_partials/footer.php"); ?>
+        <aside class="control-sidebar control-sidebar-dark">
 
+        </aside>
+
+    </div>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="plugins/datatables/jquery.dataTables.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
 </body>
 
 </html>
