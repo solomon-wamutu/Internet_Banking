@@ -40,6 +40,33 @@ $client_id = $_SESSION['client_id'];
                     </div>
                 </div>
             </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                All transactions under withdrawal category
+                            </div>
+                            <div class="card-body">
+                                <table id="export" class="table table-bordered table-hover table-stripped"></table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Transaction Code</th>
+                                        <th>Amount Number</th>
+                                        <th>Amount</th>
+                                        <th>Acc. Owner</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
