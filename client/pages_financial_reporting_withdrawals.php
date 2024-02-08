@@ -18,6 +18,29 @@ $client_id = $_SESSION['client_id'];
     <div class="wrapper">
         <?php include("dist/_partials/nav.php"); ?>
         <?php include("dist/_partials/sidebar.php"); ?>
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+<div class="col-sm-6">
+    <h1>Report : Withdrawal</h1>
+</div>
+<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+<li class="breadcrumb-item">
+    <a href="pages_dashboard.php">Dashboard</a>
+</li>
+<li class="breadcrumb-item">
+    <a href="pages_financial_reporting_withdrawals.php">Advanced Reporting</a>
+</li>
+<li class="breadcrumb-item active">Withdrawal</li>
+    </ol>
+</div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
 </body>
