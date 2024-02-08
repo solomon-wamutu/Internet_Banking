@@ -48,52 +48,53 @@ $client_id = $_SESSION['client_id'];
                                 All transactions under withdrawal category
                             </div>
                             <div class="card-body">
-                                <table id="export" class="table table-bordered table-hover table-stripped"></table>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Transaction Code</th>
-                                        <th>Amount Number</th>
-                                        <th>Amount</th>
-                                        <th>Acc. Owner</th>
-                                        <th>Timestamp</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    //Get latest deposits transactions 
-                                    $client_id = $_SESSION['client_id'];
-                                    $ret = "SELECT * FROM  ib_transactions  WHERE tr_type = 'Withdrawal' AND client_id = ? ";
-                                    $stmt = $mysqli->prepare($ret);
-                                    $stmt->bind_param('i', $client_id);
-                                    $stmt->execute(); //ok
-                                    $res = $stmt->get_result();
-                                    $cnt = 1;
-                                    while ($row = $res->fetch_object()) {
-                                        /* Trim Transaction Timestamp to 
+                                <table id="export" class="table table-bordered table-hover table-stripped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Transaction Code</th>
+                                            <th>Amount Number</th>
+                                            <th>Amount</th>
+                                            <th>Acc. Owner</th>
+                                            <th>Timestamp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        //Get latest deposits transactions 
+                                        $client_id = $_SESSION['client_id'];
+                                        $ret = "SELECT * FROM  ib_transactions  WHERE tr_type = 'Withdrawal' AND client_id = ? ";
+                                        $stmt = $mysqli->prepare($ret);
+                                        $stmt->bind_param('i', $client_id);
+                                        $stmt->execute(); //ok
+                                        $res = $stmt->get_result();
+                                        $cnt = 1;
+                                        while ($row = $res->fetch_object()) {
+                                            /* Trim Transaction Timestamp to 
                             *  User Uderstandable Formart  DD-MM-YYYY :
                             */
-                                        $transTstamp = $row->created_at;
-                                        //Perfom some lil magic here
-                                        if ($row->tr_type == 'Deposit') {
-                                            $alertClass = "<span class='badge badge-success'>$row->tr_type</span>";
-                                        } elseif ($row->tr_type == 'Withdrawal') {
-                                            $alertClass = "<span class='badge badge-danger'>$row->tr_type</span>";
-                                        } else {
-                                            $alertClass = "<span class='badge badge-warning'>$row->tr_type</span>";
-                                        }
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $cnt; ?></td>
-                                            <td><?php echo $row->tr_code; ?></a></td>
-                                            <td><?php echo $row->account_number; ?></td>
-                                            <td>$ <?php echo $row->transaction_amt; ?></td>
-                                            <td><?php echo $row->client_name; ?></td>
-                                            <td><?php echo date("d-M-Y h:m:s ", strtotime($transTstamp)); ?></td>
-                                        </tr>
-                                    <?php $cnt = $cnt + 1;
-                                    } ?>
-                                </tbody>
+                                            $transTstamp = $row->created_at;
+                                            //Perfom some lil magic here
+                                            if ($row->tr_type == 'Deposit') {
+                                                $alertClass = "<span class='badge badge-success'>$row->tr_type</span>";
+                                            } elseif ($row->tr_type == 'Withdrawal') {
+                                                $alertClass = "<span class='badge badge-danger'>$row->tr_type</span>";
+                                            } else {
+                                                $alertClass = "<span class='badge badge-warning'>$row->tr_type</span>";
+                                            }
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $cnt; ?></td>
+                                                <td><?php echo $row->tr_code; ?></a></td>
+                                                <td><?php echo $row->account_number; ?></td>
+                                                <td>$ <?php echo $row->transaction_amt; ?></td>
+                                                <td><?php echo $row->client_name; ?></td>
+                                                <td><?php echo date("d-M-Y h:m:s ", strtotime($transTstamp)); ?></td>
+                                            </tr>
+                                        <?php $cnt = $cnt + 1;
+                                        } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
