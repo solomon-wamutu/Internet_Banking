@@ -131,6 +131,10 @@ $client_id = $_SESSION['client_id'];
             });
         });
     </script>
+    <script src="plugins/datatable/button-ext/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatable/button-ext/jszip.min.js"></script>
+    <script src="plugins/datatable/button-ext/buttons.html5.min.js"></script>
+    <script src="plugins/datatable/button-ext/buttons.print.min.js"></script>
 </body>
 
 </html>
