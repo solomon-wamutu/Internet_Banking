@@ -30,3 +30,8 @@ if (isset($_POST['create_acc_type'])) {
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
     <div class="wrapper">
+        <?php
+            include('./dist/_partials/nav.php');
+            include('./dist/_partials/sidebar.php')
+
+        ?>
