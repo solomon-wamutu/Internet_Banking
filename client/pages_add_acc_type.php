@@ -9,6 +9,11 @@ if(isset($_POST['create_acc_type'])){
     $description = $_POST['description'];
     $rate = $_POST['rate'];
     $code = $_POST['code'];
-    
+
+
+    $querry = "INSERT INTO ib_acc_types (name, description, rate, code) VALUES(?,?,?,?)";
+    $stmt = $mysqli->prepare($querry);
+    $rc = $stmt->bind_param('ssss', $name, $description, $rate, $code);
+    $stmt->execute();
 }
 ?>
