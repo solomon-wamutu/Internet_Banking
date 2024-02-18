@@ -15,5 +15,13 @@ if(isset($_POST['create_acc_type'])){
     $stmt = $mysqli->prepare($querry);
     $rc = $stmt->bind_param('ssss', $name, $description, $rate, $code);
     $stmt->execute();
+
+    if($stmt){
+        $success = "Account Category Created";
+    
+    }
+    else{
+        $err = "Try again later";
+    }
 }
 ?>
