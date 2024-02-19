@@ -31,7 +31,23 @@ if (isset($_POST['create_acc_type'])) {
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
     <div class="wrapper">
         <?php
-            include('./dist/_partials/nav.php');
-            include('./dist/_partials/sidebar.php')
+        include('./dist/_partials/nav.php');
+        include('./dist/_partials/sidebar.php')
 
         ?>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Create Account Categories</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="pages_add_acc_type.php">iBanking</a></li>
+                                <li class="breadcrumb-item active">Add</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
