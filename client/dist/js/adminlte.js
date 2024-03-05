@@ -68,11 +68,31 @@
     var ControlSidebar =
       /*#__PURE__*/
       (function () {
-        function ControlSidebar(element, config) {
-          this._element = element;
-          this._config = config;
+        class ControlSidebar {
+          constructor(element, config) {
+            this._element = element;
+            this._config = config;
 
-          this._init();
+            this._init();
+          }
+          static _jQueryInterface(operation) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              var _options = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new ControlSidebar(this, _options);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (data[operation] === "undefined") {
+                throw new Error(operation + " is not a function");
+              }
+
+              data[operation]();
+            });
+          }
         } // Public
 
         var _proto = ControlSidebar.prototype;
@@ -311,24 +331,6 @@
           }
         }; // Static
 
-        ControlSidebar._jQueryInterface = function _jQueryInterface(operation) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _options = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new ControlSidebar(this, _options);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (data[operation] === "undefined") {
-              throw new Error(operation + " is not a function");
-            }
-
-            data[operation]();
-          });
-        };
 
         return ControlSidebar;
       })();
@@ -415,11 +417,33 @@
     var Layout =
       /*#__PURE__*/
       (function () {
-        function Layout(element, config) {
-          this._config = config;
-          this._element = element;
+        class Layout {
+          constructor(element, config) {
+            this._config = config;
+            this._element = element;
 
-          this._init();
+            this._init();
+          }
+          static _jQueryInterface(config) {
+            if (config === void 0) {
+              config = "";
+            }
+
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              var _options = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new Layout($(this), _options);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (config === "init" || config === "") {
+                data["_init"]();
+              }
+            });
+          }
         } // Public
 
         var _proto = Layout.prototype;
@@ -545,26 +569,6 @@
           return max;
         }; // Static
 
-        Layout._jQueryInterface = function _jQueryInterface(config) {
-          if (config === void 0) {
-            config = "";
-          }
-
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _options = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new Layout($(this), _options);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (config === "init" || config === "") {
-              data["_init"]();
-            }
-          });
-        };
 
         return Layout;
       })();
@@ -643,15 +647,34 @@
     var PushMenu =
       /*#__PURE__*/
       (function () {
-        function PushMenu(element, options) {
-          this._element = element;
-          this._options = $.extend({}, Default, options);
+        class PushMenu {
+          constructor(element, options) {
+            this._element = element;
+            this._options = $.extend({}, Default, options);
 
-          if (!$(Selector.OVERLAY).length) {
-            this._addOverlay();
+            if (!$(Selector.OVERLAY).length) {
+              this._addOverlay();
+            }
+
+            this._init();
           }
+          static _jQueryInterface(operation) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
 
-          this._init();
+              var _options = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new PushMenu(this, _options);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (typeof operation === "string" &&
+                operation.match(/collapse|expand|toggle/)) {
+                data[operation]();
+              }
+            });
+          }
         } // Public
 
         var _proto = PushMenu.prototype;
@@ -772,25 +795,6 @@
           $(Selector.WRAPPER).append(overlay);
         }; // Static
 
-        PushMenu._jQueryInterface = function _jQueryInterface(operation) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _options = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new PushMenu(this, _options);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (
-              typeof operation === "string" &&
-              operation.match(/collapse|expand|toggle/)
-            ) {
-              data[operation]();
-            }
-          });
-        };
 
         return PushMenu;
       })();
@@ -878,9 +882,27 @@
     var Treeview =
       /*#__PURE__*/
       (function () {
-        function Treeview(element, config) {
-          this._config = config;
-          this._element = element;
+        class Treeview {
+          constructor(element, config) {
+            this._config = config;
+            this._element = element;
+          }
+          static _jQueryInterface(config) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              var _options = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new Treeview($(this), _options);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (config === "init") {
+                data[config]();
+              }
+            });
+          }
         } // Public
 
         var _proto = Treeview.prototype;
@@ -968,22 +990,6 @@
           }
         }; // Static
 
-        Treeview._jQueryInterface = function _jQueryInterface(config) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _options = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new Treeview($(this), _options);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (config === "init") {
-              data[config]();
-            }
-          });
-        };
 
         return Treeview;
       })();
@@ -1045,8 +1051,22 @@
     var DirectChat =
       /*#__PURE__*/
       (function () {
-        function DirectChat(element, config) {
-          this._element = element;
+        class DirectChat {
+          constructor(element, config) {
+            this._element = element;
+          }
+          static _jQueryInterface(config) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              if (!data) {
+                data = new DirectChat($(this));
+                $(this).data(DATA_KEY, data);
+              }
+
+              data[config]();
+            });
+          }
         }
 
         var _proto = DirectChat.prototype;
@@ -1060,18 +1080,6 @@
           $(this._element).trigger(toggledEvent);
         }; // Static
 
-        DirectChat._jQueryInterface = function _jQueryInterface(config) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            if (!data) {
-              data = new DirectChat($(this));
-              $(this).data(DATA_KEY, data);
-            }
-
-            data[config]();
-          });
-        };
 
         return DirectChat;
       })();
@@ -1138,11 +1146,29 @@
     var TodoList =
       /*#__PURE__*/
       (function () {
-        function TodoList(element, config) {
-          this._config = config;
-          this._element = element;
+        class TodoList {
+          constructor(element, config) {
+            this._config = config;
+            this._element = element;
 
-          this._init();
+            this._init();
+          }
+          static _jQueryInterface(config) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              var _options = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new TodoList($(this), _options);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (config === "init") {
+                data[config]();
+              }
+            });
+          }
         } // Public
 
         var _proto = TodoList.prototype;
@@ -1181,22 +1207,6 @@
           );
         }; // Static
 
-        TodoList._jQueryInterface = function _jQueryInterface(config) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _options = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new TodoList($(this), _options);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (config === "init") {
-              data[config]();
-            }
-          });
-        };
 
         return TodoList;
       })();
@@ -1276,15 +1286,36 @@
     var CardWidget =
       /*#__PURE__*/
       (function () {
-        function CardWidget(element, settings) {
-          this._element = element;
-          this._parent = element.parents(Selector.CARD).first();
+        class CardWidget {
+          constructor(element, settings) {
+            this._element = element;
+            this._parent = element.parents(Selector.CARD).first();
 
-          if (element.hasClass(ClassName.CARD)) {
-            this._parent = element;
+            if (element.hasClass(ClassName.CARD)) {
+              this._parent = element;
+            }
+
+            this._settings = $.extend({}, Default, settings);
           }
+          static _jQueryInterface(config) {
+            var data = $(this).data(DATA_KEY);
 
-          this._settings = $.extend({}, Default, settings);
+            var _options = $.extend({}, Default, $(this).data());
+
+            if (!data) {
+              data = new CardWidget($(this), _options);
+              $(this).data(DATA_KEY, typeof config === "string" ? data : config);
+            }
+
+            if (typeof config === "string" &&
+              config.match(
+                /collapse|expand|remove|toggle|maximize|minimize|toggleMaximize/
+              )) {
+              data[config]();
+            } else if (typeof config === "object") {
+              data._init($(this));
+            }
+          }
         }
 
         var _proto = CardWidget.prototype;
@@ -1462,27 +1493,6 @@
             });
         }; // Static
 
-        CardWidget._jQueryInterface = function _jQueryInterface(config) {
-          var data = $(this).data(DATA_KEY);
-
-          var _options = $.extend({}, Default, $(this).data());
-
-          if (!data) {
-            data = new CardWidget($(this), _options);
-            $(this).data(DATA_KEY, typeof config === "string" ? data : config);
-          }
-
-          if (
-            typeof config === "string" &&
-            config.match(
-              /collapse|expand|remove|toggle|maximize|minimize|toggleMaximize/
-            )
-          ) {
-            data[config]();
-          } else if (typeof config === "object") {
-            data._init($(this));
-          }
-        };
 
         return CardWidget;
       })();
@@ -1575,26 +1585,44 @@
     var CardRefresh =
       /*#__PURE__*/
       (function () {
-        function CardRefresh(element, settings) {
-          this._element = element;
-          this._parent = element.parents(Selector.CARD).first();
-          this._settings = $.extend({}, Default, settings);
-          this._overlay = $(this._settings.overlayTemplate);
+        class CardRefresh {
+          constructor(element, settings) {
+            this._element = element;
+            this._parent = element.parents(Selector.CARD).first();
+            this._settings = $.extend({}, Default, settings);
+            this._overlay = $(this._settings.overlayTemplate);
 
-          if (element.hasClass(ClassName.CARD)) {
-            this._parent = element;
+            if (element.hasClass(ClassName.CARD)) {
+              this._parent = element;
+            }
+
+            if (this._settings.source === "") {
+              throw new Error(
+                "Source url was not defined. Please specify a url in your CardRefresh source option."
+              );
+            }
+
+            this._init();
+
+            if (this._settings.loadOnInit) {
+              this.load();
+            }
           }
+          static _jQueryInterface(config) {
+            var data = $(this).data(DATA_KEY);
 
-          if (this._settings.source === "") {
-            throw new Error(
-              "Source url was not defined. Please specify a url in your CardRefresh source option."
-            );
-          }
+            var _options = $.extend({}, Default, $(this).data());
 
-          this._init();
+            if (!data) {
+              data = new CardRefresh($(this), _options);
+              $(this).data(DATA_KEY, typeof config === "string" ? data : config);
+            }
 
-          if (this._settings.loadOnInit) {
-            this.load();
+            if (typeof config === "string" && config.match(/load/)) {
+              data[config]();
+            } else if (typeof config === "object") {
+              data._init($(this));
+            }
           }
         }
 
@@ -1654,22 +1682,6 @@
             });
         }; // Static
 
-        CardRefresh._jQueryInterface = function _jQueryInterface(config) {
-          var data = $(this).data(DATA_KEY);
-
-          var _options = $.extend({}, Default, $(this).data());
-
-          if (!data) {
-            data = new CardRefresh($(this), _options);
-            $(this).data(DATA_KEY, typeof config === "string" ? data : config);
-          }
-
-          if (typeof config === "string" && config.match(/load/)) {
-            data[config]();
-          } else if (typeof config === "object") {
-            data._init($(this));
-          }
-        };
 
         return CardRefresh;
       })();
@@ -1728,9 +1740,27 @@
     var Dropdown =
       /*#__PURE__*/
       (function () {
-        function Dropdown(element, config) {
-          this._config = config;
-          this._element = element;
+        class Dropdown {
+          constructor(element, config) {
+            this._config = config;
+            this._element = element;
+          }
+          static _jQueryInterface(config) {
+            return this.each(function () {
+              var data = $(this).data(DATA_KEY);
+
+              var _config = $.extend({}, Default, $(this).data());
+
+              if (!data) {
+                data = new Dropdown($(this), _config);
+                $(this).data(DATA_KEY, data);
+              }
+
+              if (config === "toggleSubmenu") {
+                data[config]();
+              }
+            });
+          }
         } // Public
 
         var _proto = Dropdown.prototype;
@@ -1754,22 +1784,6 @@
             });
         }; // Static
 
-        Dropdown._jQueryInterface = function _jQueryInterface(config) {
-          return this.each(function () {
-            var data = $(this).data(DATA_KEY);
-
-            var _config = $.extend({}, Default, $(this).data());
-
-            if (!data) {
-              data = new Dropdown($(this), _config);
-              $(this).data(DATA_KEY, data);
-            }
-
-            if (config === "toggleSubmenu") {
-              data[config]();
-            }
-          });
-        };
 
         return Dropdown;
       })();
@@ -1874,13 +1888,26 @@
     var Toasts =
       /*#__PURE__*/
       (function () {
-        function Toasts(element, config) {
-          this._config = config;
+        class Toasts {
+          constructor(element, config) {
+            this._config = config;
 
-          this._prepareContainer();
+            this._prepareContainer();
 
-          var initEvent = $.Event(Event.INIT);
-          $("body").trigger(initEvent);
+            var initEvent = $.Event(Event.INIT);
+            $("body").trigger(initEvent);
+          }
+          static _jQueryInterface(option, config) {
+            return this.each(function () {
+              var _options = $.extend({}, Default, config);
+
+              var toast = new Toasts($(this), _options);
+
+              if (option === "create") {
+                toast[option]();
+              }
+            });
+          }
         } // Public
 
         var _proto = Toasts.prototype;
@@ -2006,17 +2033,6 @@
           }
         }; // Static
 
-        Toasts._jQueryInterface = function _jQueryInterface(option, config) {
-          return this.each(function () {
-            var _options = $.extend({}, Default, config);
-
-            var toast = new Toasts($(this), _options);
-
-            if (option === "create") {
-              toast[option]();
-            }
-          });
-        };
 
         return Toasts;
       })();
