@@ -28,6 +28,21 @@ if(isset($_POST['update_client_account'])){
         $err = "Please try again or try later";
     }
 
+    if (isset($_POST['change_client_password'])) {
+        $password = sha1(md5($_POST['password']));
+        $client_number = $_GET['client_number'];
+        //insert unto certain table in database
+        $query = "UPDATE ib_clients  SET password=? WHERE  client_number=?";
+        $stmt = $mysqli->prepare($query);
+        //bind paramaters
+        $rc = $stmt->bind_param('ss', $password, $client_number);
+        $stmt->execute();
+        //declare a varible which will be passed to alert function
+        if ($stmt) {
+            $success = "Client Password Updated";
+        } else {
+            $err = "Please Try Again Or Try Later";
+        }
 
 }
 
