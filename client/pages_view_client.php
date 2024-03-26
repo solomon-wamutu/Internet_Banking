@@ -92,3 +92,100 @@ if (isset($_POST['update_client_account'])) {
 
 
             ?>
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1><?php echo $row->name; ?> Profile</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="pages_dashboard.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="pages_manage_clients.php">iBanking Clients</a></li>
+                                    <li class="breadcrumb-item"><a href="pages_manage_clients.php">Manage</a></li>
+                                    <li class="breadcrumb-item active"><?php echo $row->name; ?></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+
+                                <!-- Profile Image -->
+                                <div class="card card-purple card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <?php echo $profile_picture; ?>
+                                        </div>
+
+                                        <h3 class="profile-username text-center"><?php echo $row->name; ?></h3>
+
+                                        <p class="text-muted text-center">Client @iBanking </p>
+
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <b>ID No.: </b> <a class="float-right"><?php echo $row->national_id; ?></a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Email: </b> <a class="float-right"><?php echo $row->email; ?></a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Phone: </b> <a class="float-right"><?php echo $row->phone; ?></a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>ClientNo: </b> <a class="float-right"><?php echo $row->client_number; ?></a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Address: </b> <a class="float-right"><?php echo $row->address; ?></a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+
+                                <!-- About Me Box -->
+                                <div class="card card-purple">
+                                    <div class="card-header">
+                                        <h3 class="card-title">About Me</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+                                        <p class="text-muted">
+                                            B.S. in Computer Science from the University of Tennessee at Knoxville
+                                        </p>
+
+                                        <hr>
+
+                                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                                        <p class="text-muted">Malibu, California</p>
+
+                                        <hr>
+
+                                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                                        <p class="text-muted">
+                                            <span class="tag tag-danger">UI Design</span>
+                                            <span class="tag tag-success">Coding</span>
+                                            <span class="tag tag-info">Javascript</span>
+                                            <span class="tag tag-warning">PHP</span>
+                                            <span class="tag tag-primary">Node.js</span>
+                                        </p>
+
+                                        <hr>
+
+                                        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+
+                                    <?php
+                                }
+                                    ?>
