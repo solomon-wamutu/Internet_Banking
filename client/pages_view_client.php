@@ -5,16 +5,15 @@ include('conf/checklogin.php');
 check_login();
 $client_id = $_SESSION['client_id'];
 
-<?php
-include("admin/conf/config.php");
-/* Persisit System Settings On Brand */
-$ret = "SELECT * FROM `ib_systemsettings` ";
-// iB_SystemSettings
-$stmt = $mysqli->prepare($ret);
-$stmt->execute(); //ok
-$res = $stmt->get_result();
-while ($sys = $res->fetch_object()) {
-?>
+if(isset($_POST['update_client_account'])){
+
+    $name = $_POST['name'];
+    $national_id = $_POST['national_id'];
+    $client_number = $_GET['client_number'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+
+}
 
 
 
