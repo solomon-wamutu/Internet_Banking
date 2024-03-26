@@ -1,4 +1,11 @@
 <?php
+session_start();
+include('conf/config.php');
+include('conf/checklogin.php');
+check_login();
+$client_id = $_SESSION['client_id'];
+
+<?php
 include("admin/conf/config.php");
 /* Persisit System Settings On Brand */
 $ret = "SELECT * FROM `ib_systemsettings` ";
