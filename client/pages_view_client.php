@@ -21,6 +21,12 @@ if(isset($_POST['update_client_account'])){
     $rc = $stmt->bind_param('sssssss', $name, $national_id, $phone, $email,  $address, $profile_pic, $client_number);
     $stmt->execute();
 
+    if($stmt){
+        $success = "Client Account Upddated";
+    }
+    else{
+        $err = "Please try again or try later";
+    }
 
 
 }
