@@ -8,3 +8,8 @@ $stmt->execute(); //ok
 $res = $stmt->get_result();
 while ($sys = $res->fetch_object()) {
 ?>
+
+
+
+<?php
+} ?>
