@@ -12,6 +12,11 @@ if(isset($_POST['update_client_account'])){
     $client_number = $_GET['client_number'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $address  = $_POST['address'];
+
+    $profile_pic  = $_FILES["profile_pic"]["name"];
+    move_uploaded_file($_FILES["profile_pic"]["tmp_name"], "dist/img/" . $_FILES["profile_pic"]["name"]);
+
 
 }
 
