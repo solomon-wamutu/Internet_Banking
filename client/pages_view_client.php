@@ -5,7 +5,7 @@ include('conf/checklogin.php');
 check_login();
 $client_id = $_SESSION['client_id'];
 
-if(isset($_POST['update_client_account'])){
+if (isset($_POST['update_client_account'])) {
 
     $name = $_POST['name'];
     $national_id = $_POST['national_id'];
@@ -21,10 +21,9 @@ if(isset($_POST['update_client_account'])){
     $rc = $stmt->bind_param('sssssss', $name, $national_id, $phone, $email,  $address, $profile_pic, $client_number);
     $stmt->execute();
 
-    if($stmt){
+    if ($stmt) {
         $success = "Client Account Upddated";
-    }
-    else{
+    } else {
         $err = "Please try again or try later";
     }
 
@@ -43,10 +42,24 @@ if(isset($_POST['update_client_account'])){
         } else {
             $err = "Please Try Again Or Try Later";
         }
-
+    }
 }
 
+?>
 
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<?php include("dist/_partials/head.php"); ?>
 
-<?php
-} ?>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <?php include("dist/_partials/nav.php"); ?>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <?php include("dist/_partials/sidebar.php"); ?>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
