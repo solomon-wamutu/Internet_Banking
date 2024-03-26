@@ -63,3 +63,32 @@ if (isset($_POST['update_client_account'])) {
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <?php
+            $client_number = $_GET['client_number'];
+            $ret = "SELECT * FROM  ib_clients  WHERE client_number = ? ";
+            $stmt = $mysqli->prepare($ret);
+            $stmt->bind_param('s', $client_number);
+            $stmt->execute(); //ok
+            $res = $stmt->get_result();
+            while ($row = $res->fetch_object()) {
+                //set automatically logged in user default image if they have not updated their pics
+                if ($row->profile_pic == '') {
+                    $profile_picture = "
+
+                        <img class='img-fluid'
+                        src='dist/img/user_icon.png'
+                        alt='User profile picture'>
+
+                        ";
+                } else {
+                    $profile_picture = "
+
+                        <img class=' img-fluid'
+                        src='dist/img/$row->profile_pic'
+                        alt='User profile picture'>
+
+                        ";
+                }
+
+
+            ?>
