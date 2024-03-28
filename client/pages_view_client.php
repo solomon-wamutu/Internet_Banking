@@ -290,7 +290,7 @@ if (isset($_POST['update_client_account'])) {
                             <!-- /.col -->
                         </div>
                         <!-- /.row -->
-                    </div><!-- /.container-fluid -->
+                    </div>
                 </section>
 
 
