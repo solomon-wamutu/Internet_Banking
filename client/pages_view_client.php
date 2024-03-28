@@ -285,7 +285,6 @@ if (isset($_POST['update_client_account'])) {
                                         <!-- /.tab-content -->
                                     </div><!-- /.card-body -->
                                 </div>
-                                <!-- /.nav-tabs-custom -->
                             </div>
                             <!-- /.col -->
                         </div>
