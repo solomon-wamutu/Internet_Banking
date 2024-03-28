@@ -307,7 +307,6 @@ if (isset($_POST['update_client_account'])) {
         </aside>
     </div>
   
-    <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
