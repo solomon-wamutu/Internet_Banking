@@ -306,7 +306,6 @@ if (isset($_POST['update_client_account'])) {
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
         </aside>
-        <!-- /.control-sidebar -->
     </div>
   
     <!-- jQuery -->
