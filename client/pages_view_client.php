@@ -302,7 +302,6 @@ if (isset($_POST['update_client_account'])) {
         <!-- /.content-wrapper -->
         <?php include("dist/_partials/footer.php"); ?>
 
-        <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
         </aside>
